@@ -1,0 +1,16 @@
+# Node and NPM
+node_modules/
+dist/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sw?
