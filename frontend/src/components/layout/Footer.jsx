@@ -1,109 +1,106 @@
-import { Heart, Github, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { Twitter, Instagram, Linkedin, Youtube, Mail, MapPin, ChevronRight, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import nssLogo from '../../assets/NSS logo.png';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
-    const footerLinks = [
-        { name: 'About Us', href: '/about' },
-        { name: 'Events', href: '#' },
-        { name: 'Activities', href: '#' },
-        { name: 'Contact', href: '/contact' },
+    const sections = [
+        {
+            title: 'Organization',
+            links: [
+                { name: 'About NSS', href: '/about' },
+                { name: 'Our Team', href: '/team' },
+                { name: 'Think Tank', href: '/think-tank' },
+                { name: 'Join Us', href: '/join' },
+            ]
+        },
+        {
+            title: 'Resources',
+            links: [
+                { name: 'Latest Events', href: '/events' },
+                { name: 'Blood Bank', href: '/blood-request' },
+                { name: 'Gallery', href: '/events' },
+                { name: 'Contact', href: '/contact' },
+            ]
+        }
     ];
 
     return (
-        <footer className="footer bg-white border-t border-gray-100">
-            <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
-                    <div className="col-span-1 md:col-span-1 border-b md:border-b-0 pb-8 md:pb-0 border-gray-100">
-                        <Link to="/" className="flex items-center space-x-2 mb-6 group">
-                            <div className="bg-primary-50 p-2 rounded-xl group-hover:scale-110 transition-transform">
-                                <Heart className="h-6 w-6 text-primary-600 fill-current" />
+        <footer className="bg-white dark:bg-[#030712] border-t border-gray-100 dark:border-white/5 transition-colors duration-300">
+            <div className="container mx-auto px-6 py-12">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+                    {/* Branding Section */}
+                    <div className="col-span-1 md:col-span-1 space-y-4">
+                        <Link to="/" className="flex items-center space-x-3 group">
+                            <div className="w-8 h-8 rounded-lg overflow-hidden bg-white dark:bg-gray-800 p-1 border border-gray-100 dark:border-white/10 shadow-sm group-hover:scale-105 transition-transform">
+                                <img
+                                    src={nssLogo}
+                                    alt="NSS Logo"
+                                    className="w-full h-full object-contain"
+                                    onError={(e) => {
+                                        e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/f/f1/NSS_logo.png';
+                                    }}
+                                />
                             </div>
-                            <span className="text-2xl font-black text-gray-900 tracking-tightest">NSS UNIT</span>
+                            <span className="text-base font-bold tracking-tight text-gray-900 dark:text-white uppercase">NSS NITH</span>
                         </Link>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">
-                            Not Me, But You. We are dedicated to building a stronger, more compassionate society through grassroots volunteerism. Join our mission today.
+                        <p className="text-sm text-gray-500 dark:text-gray-400 font-medium leading-relaxed max-w-[240px]">
+                            Building a better society through compassionate volunteerism since 1969.
                         </p>
-                        <div className="flex items-center space-x-4">
-                            <a href="#" className="p-2.5 rounded-xl bg-gray-50 text-gray-400 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300">
-                                <Twitter className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="p-2.5 rounded-xl bg-gray-50 text-gray-400 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300">
-                                <Github className="h-5 w-5" />
-                            </a>
-                            <a href="#" className="p-2.5 rounded-xl bg-gray-50 text-gray-400 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300">
-                                <Linkedin className="h-5 w-5" />
-                            </a>
+                        <div className="flex items-center space-x-3 pt-2">
+                            {[Twitter, Instagram, Linkedin, Github].map((Icon, i) => (
+                                <a key={i} href="#" className="p-2 rounded-lg text-gray-400 hover:text-primary-600 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-all" aria-label="Social Link">
+                                    <Icon className="h-4 w-4" />
+                                </a>
+                            ))}
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 col-span-1 md:col-span-3 gap-8">
-                        <div className="space-y-6">
-                            <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Quick Links</h4>
-                            <ul className="space-y-4">
-                                {footerLinks.map((link) => (
+                    {/* Navigation Sections */}
+                    {sections.map((section) => (
+                        <div key={section.title} className="space-y-4">
+                            <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">{section.title}</h3>
+                            <ul className="space-y-2.5">
+                                {section.links.map((link) => (
                                     <li key={link.name}>
-                                        <Link to={link.href} className="text-gray-600 hover:text-primary-600 font-medium transition-colors inline-block hover:translate-x-1 duration-300">
+                                        <Link
+                                            to={link.href}
+                                            className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-white transition-colors flex items-center group font-medium"
+                                        >
+                                            <ChevronRight className="h-3 w-3 mr-1 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary-500" />
                                             {link.name}
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
                         </div>
+                    ))}
 
-                        <div className="space-y-6">
-                            <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Contact Us</h4>
-                            <ul className="space-y-5">
-                                <li className="flex items-start group">
-                                    <div className="p-1.5 rounded-lg bg-red-50 text-red-500 mr-3 mt-0.5 group-hover:scale-110 transition-transform">
-                                        <MapPin className="h-4 w-4" />
-                                    </div>
-                                    <span className="text-gray-600 text-sm font-medium">NSS Unit, Regional College,<br />New Delhi, India</span>
-                                </li>
-                                <li className="flex items-center group">
-                                    <div className="p-1.5 rounded-lg bg-blue-50 text-blue-500 mr-3 group-hover:scale-110 transition-transform">
-                                        <Phone className="h-4 w-4" />
-                                    </div>
-                                    <span className="text-gray-600 text-sm font-medium">+91 9876543210</span>
-                                </li>
-                                <li className="flex items-center group">
-                                    <div className="p-1.5 rounded-lg bg-green-50 text-green-500 mr-3 group-hover:scale-110 transition-transform">
-                                        <Mail className="h-4 w-4" />
-                                    </div>
-                                    <span className="text-gray-600 text-sm font-medium break-all">nss@college.edu</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="space-y-6">
-                            <h4 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6">Join Our Newsletter</h4>
-                            <p className="text-gray-500 text-xs font-medium leading-relaxed">Get the latest updates on our upcoming events and initiatives directly in your inbox.</p>
-                            <form className="relative group">
-                                <input
-                                    type="email"
-                                    placeholder="hello@world.com"
-                                    className="w-full bg-gray-50 border-none rounded-xl px-4 py-3.5 text-sm font-medium focus:ring-2 focus:ring-primary-500 transition-all placeholder-gray-400"
-                                />
-                                <button
-                                    type="submit"
-                                    className="mt-3 w-full bg-gray-900 text-white px-4 py-3.5 rounded-xl font-bold text-sm shadow-xl shadow-gray-200 hover:bg-black active:scale-[0.98] transition-all"
-                                >
-                                    Subscribe
-                                </button>
-                            </form>
+                    {/* Contact Section */}
+                    <div className="space-y-4">
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wider uppercase">Contact</h3>
+                        <div className="space-y-3">
+                            <a href="mailto:nss@nith.ac.in" className="flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 transition-colors group">
+                                <Mail className="h-4 w-4 mr-3 text-gray-300 dark:text-gray-700 group-hover:text-primary-500" />
+                                <span className="font-medium">nss@nith.ac.in</span>
+                            </a>
+                            <div className="flex items-start text-sm text-gray-500 dark:text-gray-400 group">
+                                <MapPin className="h-4 w-4 mr-3 mt-0.5 text-gray-300 dark:text-gray-700" />
+                                <span className="font-medium">NIT Hamirpur, HP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <p className="text-gray-400 text-xs font-semibold tracking-wide">
-                        &copy; {currentYear} NSS UNIT DEVELOPMENT. PROUDLY DEVELOPED WITH ❤️
+                {/* Streamlined Bottom Bar */}
+                <div className="mt-12 pt-8 border-t border-gray-100 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
+                        &copy; {currentYear} NSS NIT HAMIRPUR
                     </p>
-                    <div className="flex items-center space-x-8 text-xs font-bold text-gray-400 uppercase tracking-widest">
-                        <a href="#" className="hover:text-primary-600 transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-primary-600 transition-colors">Terms</a>
-                        <a href="#" className="hover:text-primary-600 transition-colors">Cookies</a>
+                    <div className="flex items-center space-x-6">
+                        <Link to="/privacy" className="text-xs font-semibold text-gray-400 dark:text-gray-500 hover:text-primary-600 transition-colors uppercase">Privacy</Link>
+                        <Link to="/terms" className="text-xs font-semibold text-gray-400 dark:text-gray-500 hover:text-primary-600 transition-colors uppercase">Terms</Link>
                     </div>
                 </div>
             </div>
