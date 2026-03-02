@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Users, Calendar, Heart, MessageSquare, ShieldCheck, Mail, Sparkles, Zap, Globe, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Users, Calendar, Heart, ShieldCheck, Mail, Sparkles, Zap, Globe, Target, ChevronRight, BookOpen, Award } from 'lucide-react';
 import api from '../services/api';
 import Button from '../components/common/Button';
 import Card from '../components/common/Card';
@@ -51,22 +52,26 @@ const Home = () => {
                         Join NSS NIT Hamirpur in our journey to build a better society. Compassionate service, student leadership, and community development.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 animate-float" style={{ animationDelay: '0.2s' }}>
-                        <Button size="lg" className="group">
-                            Start Serving <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                        <Button variant="glass" size="lg">
-                            Our Initiatives
-                        </Button>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+                        <Link to="/join">
+                            <Button size="lg" className="group">
+                                Start Serving <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Link>
+                        <Link to="/events">
+                            <Button variant="glass" size="lg">
+                                Our Initiatives
+                            </Button>
+                        </Link>
                     </div>
 
-                    {/* Trusted Stats */}
+                    {/* Stats */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto pt-10 border-t border-gray-100 dark:border-white/5">
                         {[
                             { label: 'Volunteers', value: '250+', icon: <Users className="h-4 w-4" /> },
-                            { label: 'Events Year', value: '45+', icon: <Calendar className="h-4 w-4" /> },
-                            { label: 'Impact', value: '5K+', icon: <Target className="h-4 w-4" /> },
-                            { label: 'Global reach', value: '∞', icon: <Globe className="h-4 w-4" /> },
+                            { label: 'Events / Year', value: '45+', icon: <Calendar className="h-4 w-4" /> },
+                            { label: 'Lives Impacted', value: '5K+', icon: <Target className="h-4 w-4" /> },
+                            { label: 'Years Active', value: '55+', icon: <Globe className="h-4 w-4" /> },
                         ].map((stat, i) => (
                             <div key={i} className="p-6 text-center group">
                                 <div className="text-gray-400 dark:text-gray-500 flex justify-center mb-2 group-hover:text-primary-500 transition-colors">{stat.icon}</div>
@@ -78,29 +83,36 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Premium Features Grid */}
+            {/* What We Do Grid */}
             <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-transparent">
                 <div className="container mx-auto max-w-7xl">
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight">Our Impact Areas</h2>
+                        <div className="h-1.5 w-16 bg-primary-500 mx-auto rounded-full"></div>
+                        <p className="text-gray-500 dark:text-gray-400 font-medium max-w-xl mx-auto">
+                            Driving meaningful change across health, education, environment, and community welfare.
+                        </p>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {
                                 title: 'Community Impact',
-                                desc: 'Driving meaningful change through grassroots initiatives and dedicated volunteer work.',
+                                desc: 'Driving meaningful change through grassroots initiatives and dedicated volunteer work across nearby villages.',
                                 icon: <Zap className="h-6 w-6 text-yellow-500" />
                             },
                             {
                                 title: 'Student Leadership',
-                                desc: 'Developing the next generation of leaders through responsibility and public service.',
+                                desc: 'Developing the next generation of leaders through responsibility, team coordination, and public service.',
                                 icon: <Users className="h-6 w-6 text-blue-500" />
                             },
                             {
                                 title: 'Social Synergy',
-                                desc: 'Connecting students with the community to foster mutual growth and understanding.',
+                                desc: 'Connecting students with the community to foster mutual growth, understanding, and social cohesion.',
                                 icon: <Heart className="h-6 w-6 text-red-500" />
                             }
                         ].map((feature, i) => (
                             <Card key={i} className="group">
-                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8 border border-white/50 shadow-inner group-hover:scale-110 transition-transform">
+                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8 bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-white/5 group-hover:scale-110 transition-transform">
                                     {feature.icon}
                                 </div>
                                 <h3 className="text-2xl font-black mb-4 dark:text-white tracking-tight">{feature.title}</h3>
@@ -111,8 +123,34 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Dynamic Core Team Section */}
-            <section className="relative z-10 py-32 px-4 sm:px-6 lg:px-8">
+            {/* Initiatives Showcase */}
+            <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
+                <div className="container mx-auto max-w-7xl">
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight">Key Initiatives</h2>
+                        <div className="h-1.5 w-16 bg-primary-500 mx-auto rounded-full"></div>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[
+                            { icon: <Heart className="h-5 w-5 text-red-500" />, title: 'Blood Donation', desc: 'Saving lives through regular donation camps', color: 'red' },
+                            { icon: <BookOpen className="h-5 w-5 text-blue-500" />, title: 'Parishodh', desc: 'Research-based community problem solving', color: 'blue' },
+                            { icon: <Award className="h-5 w-5 text-amber-500" />, title: 'Umang', desc: 'Joy of giving to underprivileged children', color: 'amber' },
+                            { icon: <Globe className="h-5 w-5 text-emerald-500" />, title: 'Swachh Campus', desc: 'Cleanliness and environmental preservation', color: 'emerald' },
+                        ].map((item, i) => (
+                            <div key={i} className="p-6 bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-100 dark:border-white/5 hover:border-gray-200 dark:hover:border-white/10 hover:-translate-y-1 transition-all duration-300 group">
+                                <div className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-800/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                    {item.icon}
+                                </div>
+                                <h4 className="font-bold text-gray-900 dark:text-white mb-2">{item.title}</h4>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Team Preview Section */}
+            <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-transparent">
                 <div className="container mx-auto max-w-5xl">
                     <Card padding="lg" className="relative">
                         <div className="absolute top-0 right-0 p-10 opacity-[0.03] dark:opacity-10 pointer-events-none">
@@ -120,7 +158,7 @@ const Home = () => {
                         </div>
 
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-black mb-6 dark:text-white tracking-tightest leading-tight">
+                            <h2 className="text-3xl md:text-5xl font-black mb-6 dark:text-white tracking-tight leading-tight">
                                 Powered by an <br /> Extraordinary Team
                             </h2>
                             <div className="h-1.5 w-20 bg-gradient-to-r from-primary-600 to-indigo-600 mx-auto rounded-full"></div>
@@ -129,19 +167,19 @@ const Home = () => {
                         {loading ? (
                             <div className="flex flex-col items-center justify-center py-20 space-y-6">
                                 <div className="w-16 h-16 border-4 border-gray-100 dark:border-white/5 border-t-primary-500 rounded-full animate-spin"></div>
-                                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Syncing with source</p>
+                                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Loading team data</p>
                             </div>
-                        ) : (
+                        ) : users.length > 0 ? (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                {users.map((user) => (
+                                {users.slice(0, 4).map((user) => (
                                     <div key={user.id} className="p-8 rounded-[2rem] bg-gray-50/50 dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 hover:bg-white dark:hover:bg-white/[0.05] transition-all duration-300 group">
                                         <div className="flex items-center space-x-4">
                                             <div className="w-12 h-12 rounded-2xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold group-hover:scale-110 transition-transform">
                                                 {user.name.charAt(0)}
                                             </div>
                                             <div>
-                                                <h4 className="font-black text-gray-900 dark:text-white text-lg tracking-tight uppercase">{user.name}</h4>
-                                                <p className="text-xs text-primary-600 font-bold tracking-widest uppercase opacity-60">Team Member</p>
+                                                <h4 className="font-black text-gray-900 dark:text-white text-lg tracking-tight">{user.name}</h4>
+                                                <p className="text-xs text-primary-600 dark:text-primary-400 font-bold tracking-widest uppercase opacity-60">Team Member</p>
                                             </div>
                                         </div>
                                         <div className="mt-6 flex items-center text-gray-400 group-hover:text-primary-500 transition-colors">
@@ -151,8 +189,44 @@ const Home = () => {
                                     </div>
                                 ))}
                             </div>
+                        ) : (
+                            <div className="text-center py-12">
+                                <p className="text-gray-500 dark:text-gray-400 font-medium">Meet our incredible team on the Team page.</p>
+                            </div>
                         )}
+
+                        <div className="text-center mt-10">
+                            <Link to="/team" className="inline-flex items-center text-sm font-bold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 group transition-colors">
+                                View Full Team
+                                <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
                     </Card>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
+                <div className="container mx-auto max-w-4xl">
+                    <div className="relative overflow-hidden bg-gray-900 dark:bg-white/5 rounded-3xl p-12 md:p-16 text-center border border-gray-800 dark:border-white/10">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 via-transparent to-purple-600/20 pointer-events-none"></div>
+                        <div className="relative z-10">
+                            <h2 className="text-3xl md:text-5xl font-black text-white dark:text-white tracking-tight mb-6 leading-tight">
+                                Ready to Make<br />a Difference?
+                            </h2>
+                            <p className="text-gray-400 dark:text-gray-400 font-medium text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                                Join 250+ volunteers building a better society. Your journey of service and self-discovery starts here.
+                            </p>
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                <Link to="/join" className="px-8 py-4 bg-white dark:bg-white text-gray-900 rounded-2xl font-bold shadow-lg hover:shadow-xl hover:opacity-95 active:scale-95 transition-all flex items-center group">
+                                    Join NSS Now <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                                <Link to="/events" className="px-8 py-4 border border-white/20 text-white rounded-2xl font-bold hover:bg-white/10 active:scale-95 transition-all">
+                                    Explore Events
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
