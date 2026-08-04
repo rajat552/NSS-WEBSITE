@@ -28,23 +28,18 @@ const BloodRequest = () => {
         // Add API call logic here
     };
 
-    const inputClasses = "w-full px-5 py-4 rounded-2xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all text-gray-900 dark:text-white placeholder-gray-400";
-    const labelClasses = "block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 ml-1 tracking-tight uppercase";
+    const inputClasses = "w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors text-gray-900 placeholder-gray-400 bg-white shadow-sm";
+    const labelClasses = "block text-sm font-bold text-gray-700 mb-2 ml-1 tracking-wide uppercase";
 
     return (
-        <div className="relative min-h-screen pt-12 pb-32 overflow-hidden bg-white dark:bg-[#030711]">
-            {/* Background Gradients */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-[10%] right-[10%] w-[40%] h-[40%] rounded-full bg-red-500/5 dark:bg-red-500/10 blur-[120px] animate-pulse-soft"></div>
-                <div className="absolute bottom-[20%] left-[5%] w-[30%] h-[30%] rounded-full bg-orange-500/5 dark:bg-orange-500/5 blur-[120px] animate-float"></div>
-                {/* Mesh Gradient Overlay */}
-                <div className="absolute inset-0 bg-mesh opacity-30 dark:opacity-20"></div>
-            </div>
+        <div className="relative min-h-screen pt-12 pb-32 bg-gray-50">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
 
             <div className="container mx-auto max-w-4xl px-4 relative z-10 pt-16">
                 <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/50 mb-8 animate-float">
-                        <Droplet className="h-10 w-10 text-red-600 dark:text-red-500" fill="currentColor" />
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 border border-red-200 mb-6">
+                        <Droplet className="h-8 w-8 text-red-600" fill="currentColor" />
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white tracking-tightest leading-tight mb-4">
                         Blood <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-rose-500">Request</span>
@@ -202,10 +197,10 @@ const BloodRequest = () => {
                             <div className="pt-8">
                                 <Button
                                     type="submit"
-                                    className="w-full py-6 text-xl bg-red-600 hover:bg-red-700 text-white rounded-[2rem] shadow-2xl shadow-red-500/20 active:scale-[0.98] transition-all group"
+                                    className="w-full py-4 text-lg bg-red-600 hover:bg-red-700 text-white rounded-md shadow-md active:scale-100 transition-colors uppercase tracking-wide group"
                                 >
                                     <span className="flex items-center justify-center">
-                                        Send Request <Send className="ml-3 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        Submit Request <Send className="ml-3 h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                     </span>
                                 </Button>
                             </div>

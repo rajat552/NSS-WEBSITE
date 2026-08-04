@@ -10,18 +10,18 @@ const Card = ({
     onClick,
     ...props
 }) => {
-    const baseStyles = "relative overflow-hidden transition-all duration-500 rounded-[2rem]";
+    const baseStyles = "relative overflow-hidden transition-all duration-300 rounded-xl border-t-4 border-t-transparent";
 
     const glassStyles = glass
-        ? "bg-white/40 dark:bg-white/[0.03] backdrop-blur-lg border border-white/20 dark:border-white/[0.05]"
-        : "bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800";
+        ? "bg-white dark:bg-gray-800 border-x border-b border-gray-200 dark:border-gray-700"
+        : "bg-gray-50 dark:bg-gray-900 border-x border-b border-gray-100 dark:border-gray-800";
 
-    const shadowStyles = shadow ? "shadow-2xl shadow-black/5 dark:shadow-none" : "";
+    const shadowStyles = shadow ? "shadow-md dark:shadow-none" : "";
 
     const hoverStyles = hover
         ? onClick
-            ? "hover:-translate-y-2 hover:scale-[1.02] hover:bg-white/60 dark:hover:bg-white/10 cursor-pointer"
-            : "hover:-translate-y-2 hover:bg-white/50 dark:hover:bg-white/[0.08]"
+            ? "hover:-translate-y-1 hover:border-t-primary-600 cursor-pointer"
+            : "hover:-translate-y-1 hover:border-t-primary-600"
         : "";
 
     const paddings = {

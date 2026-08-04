@@ -27,17 +27,17 @@ const Header = () => {
         { name: 'Contact Us', href: '/contact' },
     ];
 
-    const activeLinkStyle = "text-primary-600 dark:text-white font-semibold";
-    const defaultLinkStyle = "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium";
+    const activeLinkStyle = "text-primary-900 dark:text-primary-400 font-bold border-b-[3px] border-saffron pb-1 transform scale-105";
+    const defaultLinkStyle = "text-gray-600 dark:text-gray-300 hover:text-primary-900 dark:hover:text-primary-400 font-semibold transition-all duration-300 pb-1 hover:scale-105";
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "py-3" : "py-6"}`}>
-            <nav className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl transition-all duration-500">
-                <div className={`glass dark:bg-gray-900/40 rounded-2xl md:rounded-[2rem] px-6 py-2.5 flex items-center justify-between shadow-2xl shadow-black/5 dark:shadow-none border border-white/20 dark:border-white/5`}>
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg border-t-4 border-saffron ${isScrolled ? "py-2 shadow-lg" : "py-3 shadow-md"}`}>
+            <nav className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-16 transition-all duration-500">
+                <div className="flex items-center justify-between">
                     {/* Logo and Brand */}
                     <div className="flex items-center">
-                        <Link to="/" className="flex items-center space-x-3 group">
-                            <div className="w-10 h-10 rounded-xl overflow-hidden bg-white dark:bg-gray-800 p-1 transition-transform group-hover:scale-110 duration-500 shadow-sm">
+                        <Link to="/" className="flex items-center space-x-4 group">
+                            <div className="w-12 h-12 sm:w-16 sm:h-16 overflow-hidden bg-transparent transition-transform group-hover:scale-105 duration-500 drop-shadow-md">
                                 <img
                                     src={nssLogo}
                                     alt="NSS Logo"
@@ -47,20 +47,26 @@ const Header = () => {
                                     }}
                                 />
                             </div>
-                            <span className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                NSS <span className="text-primary-600 dark:text-primary-400">NIT Hamirpur</span>
-                            </span>
+                            <div className="flex items-center space-x-3 xl:space-x-4">
+                                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary-900 dark:text-white uppercase drop-shadow-sm whitespace-nowrap">
+                                    NSS <span className="text-saffron">NIT Hamirpur</span>
+                                </span>
+                                <div className="h-6 w-px bg-gray-300 dark:bg-gray-700 hidden xl:block"></div>
+                                <span className="text-xs xl:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest hidden xl:block whitespace-nowrap">
+                                    Ministry of Youth Affairs & Sports
+                                </span>
+                            </div>
                         </Link>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center space-x-8">
-                        <div className="flex space-x-8 items-center">
+                    <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
+                        <div className="flex space-x-4 xl:space-x-8 items-center">
                             {navigation.map((item) => (
                                 <NavLink
                                     key={item.name}
                                     to={item.href}
-                                    className={({ isActive }) => `${isActive ? activeLinkStyle : defaultLinkStyle} text-sm`}
+                                    className={({ isActive }) => `${isActive ? activeLinkStyle : defaultLinkStyle} text-sm xl:text-base whitespace-nowrap`}
                                 >
                                     {item.name}
                                 </NavLink>
@@ -69,16 +75,16 @@ const Header = () => {
 
                         <div className="h-6 w-px bg-gray-200 dark:bg-gray-800"></div>
 
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-2 xl:space-x-4">
                             <button
                                 onClick={toggleTheme}
-                                className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors"
+                                className="p-2 xl:p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
                                 aria-label="Toggle Theme"
                             >
-                                {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+                                {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
                             </button>
-                            <Link to="/join" className="bg-gray-900 dark:bg-white text-white dark:text-black px-5 py-2 rounded-xl font-semibold text-sm hover:opacity-90 active:scale-95 transition-all flex items-center group">
-                                Join Us <ChevronRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+                            <Link to="/join" className="bg-gradient-to-r from-primary-900 to-primary-800 dark:from-primary-600 dark:to-primary-500 text-white px-5 py-2.5 xl:px-8 xl:py-3 rounded-lg font-bold text-sm xl:text-base tracking-wide hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center shadow-md group whitespace-nowrap">
+                                Join Us <ChevronRight className="ml-1 xl:ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                     </div>
@@ -110,7 +116,7 @@ const Header = () => {
                             to={item.href}
                             onClick={() => setIsMenuOpen(false)}
                             className={({ isActive }) =>
-                                `text-2xl font-bold transition-all ${isActive ? "text-primary-600 dark:text-white" : "text-gray-400"}`
+                                `text-xl font-bold transition-all border-b-2 pb-1 ${isActive ? "text-primary-900 dark:text-primary-400 border-saffron" : "text-gray-600 dark:text-gray-300 border-transparent"}`
                             }
                         >
                             {item.name}
@@ -119,7 +125,7 @@ const Header = () => {
                     <Link
                         to="/join"
                         onClick={() => setIsMenuOpen(false)}
-                        className="w-full max-w-xs text-center bg-gray-900 dark:bg-white text-white dark:text-black py-5 rounded-2xl font-bold text-xl shadow-2xl"
+                        className="w-full max-w-xs text-center bg-primary-900 dark:bg-primary-600 text-white py-4 rounded-md font-bold text-lg shadow-md uppercase tracking-wide"
                     >
                         Join Us
                     </Link>

@@ -25,30 +25,24 @@ const Home = () => {
 
     return (
         <div className="relative min-h-screen overflow-hidden bg-white dark:bg-[#030711] selection:bg-primary-500/20">
-            {/* Animated Background Elements */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-primary-500/10 blur-[120px] animate-pulse-soft"></div>
-                <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] rounded-full bg-purple-500/10 blur-[120px] animate-float"></div>
-                <div className="absolute bottom-[10%] left-[20%] w-[25%] h-[25%] rounded-full bg-teal-500/10 blur-[100px] animate-pulse-soft"></div>
-                <div className="absolute inset-0 bg-mesh opacity-60 dark:opacity-30"></div>
-            </div>
+            {/* Formal Background Pattern */}
+            <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.01] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, black 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
 
             {/* Hero Section */}
-            <section className="relative z-10 pt-20 pb-16 lg:pt-32 lg:pb-32 px-4 sm:px-6 lg:px-8">
+            <section className="relative z-10 pt-20 pb-16 lg:pt-32 lg:pb-32 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
                 <div className="container mx-auto max-w-7xl text-center">
-                    <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/20 border border-primary-100 dark:border-primary-800/50 mb-8 animate-float">
-                        <Sparkles className="h-4 w-4 text-primary-600 dark:text-primary-400" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary-700 dark:text-primary-400">Serving Humanity Since 1969</span>
+                    <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-saffron/10 border border-saffron/20 mb-8">
+                        <Sparkles className="h-4 w-4 text-saffron" />
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-saffron">Serving Humanity Since 1969</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-8 select-none">
-                        <span className="text-gray-900 dark:text-white">Empowering </span>
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-indigo-500 to-purple-600 animate-gradient-move">Change</span>
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.2] mb-8 select-none uppercase">
+                        <span className="text-primary-900 dark:text-white">Empowering Change </span>
                         <br />
-                        <span className="text-gray-900 dark:text-white">Through Service.</span>
+                        <span className="text-gray-700 dark:text-gray-300">Through Service.</span>
                     </h1>
 
-                    <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed opacity-90">
+                    <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto mb-12 leading-relaxed">
                         Join NSS NIT Hamirpur in our journey to build a better society. Compassionate service, student leadership, and community development.
                     </p>
 
@@ -58,31 +52,30 @@ const Home = () => {
                                 Start Serving <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <Link to="/events">
-                            <Button variant="glass" size="lg">
-                                Our Initiatives
-                            </Button>
+                        <Link to="/events" className="px-8 py-4 border-2 border-primary-900 dark:border-white text-primary-900 dark:text-white rounded-md font-bold hover:bg-primary-50 dark:hover:bg-white/10 transition-colors uppercase tracking-wide">
+                            Explore Events
                         </Link>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto pt-10 border-t border-gray-100 dark:border-white/5">
-                        {[
-                            { label: 'Volunteers', value: '250+', icon: <Users className="h-4 w-4" /> },
-                            { label: 'Events / Year', value: '45+', icon: <Calendar className="h-4 w-4" /> },
-                            { label: 'Lives Impacted', value: '5K+', icon: <Target className="h-4 w-4" /> },
-                            { label: 'Years Active', value: '55+', icon: <Globe className="h-4 w-4" /> },
-                        ].map((stat, i) => (
-                            <div key={i} className="p-6 text-center group">
-                                <div className="text-gray-400 dark:text-gray-500 flex justify-center mb-2 group-hover:text-primary-500 transition-colors">{stat.icon}</div>
-                                <div className="text-3xl font-bold dark:text-white tracking-tighter mb-1 select-none">{stat.value}</div>
-                                <div className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">{stat.label}</div>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </section>
 
+            {/* Latest Updates Marquee */}
+            <section className="bg-primary-900 border-b-4 border-saffron flex relative z-20">
+                <div className="bg-saffron text-white font-bold px-6 py-2 whitespace-nowrap z-10 uppercase tracking-widest hidden md:flex items-center shadow-lg">
+                    Latest Updates
+                </div>
+                <div className="overflow-hidden flex-1 flex items-center bg-primary-900 text-white">
+                    <div className="whitespace-nowrap animate-marquee py-2 flex items-center space-x-12 font-medium">
+                        <span>📢 NSS Special Camp dates announced! Register now.</span>
+                        <span>🩸 Mega Blood Donation Camp scheduled for next week.</span>
+                        <span>🌱 Join the Swachhata Hi Seva campaign on campus.</span>
+                        <span>🏆 NITH NSS volunteers win state-level recognition for Parishodh.</span>
+                        <span>📢 NSS Special Camp dates announced! Register now.</span>
+                    </div>
+                </div>
+            </section>
+
+            {/* What We Do Grid */}
             {/* What We Do Grid */}
             <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-transparent">
                 <div className="container mx-auto max-w-7xl">
@@ -137,12 +130,12 @@ const Home = () => {
                             { icon: <Award className="h-5 w-5 text-amber-500" />, title: 'Umang', desc: 'Joy of giving to underprivileged children', color: 'amber' },
                             { icon: <Globe className="h-5 w-5 text-emerald-500" />, title: 'Swachh Campus', desc: 'Cleanliness and environmental preservation', color: 'emerald' },
                         ].map((item, i) => (
-                            <div key={i} className="p-6 bg-white dark:bg-gray-900/50 rounded-2xl border border-gray-100 dark:border-white/5 hover:border-gray-200 dark:hover:border-white/10 hover:-translate-y-1 transition-all duration-300 group">
-                                <div className="w-10 h-10 rounded-xl bg-gray-50 dark:bg-gray-800/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <div key={i} className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 border-t-4 border-t-primary-600 shadow-sm hover:shadow-md transition-all duration-300 group">
+                                <div className="w-10 h-10 rounded-lg bg-gray-50 dark:bg-gray-900 flex items-center justify-center mb-4 text-primary-600">
                                     {item.icon}
                                 </div>
-                                <h4 className="font-bold text-gray-900 dark:text-white mb-2">{item.title}</h4>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+                                <h4 className="font-bold text-primary-900 dark:text-white mb-2">{item.title}</h4>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -172,19 +165,19 @@ const Home = () => {
                         ) : users.length > 0 ? (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 {users.slice(0, 4).map((user) => (
-                                    <div key={user.id} className="p-8 rounded-[2rem] bg-gray-50/50 dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 hover:bg-white dark:hover:bg-white/[0.05] transition-all duration-300 group">
+                                    <div key={user.id} className="p-8 rounded-xl bg-white dark:bg-gray-800 border-l-4 border-saffron shadow-sm hover:shadow-md transition-all duration-300 group">
                                         <div className="flex items-center space-x-4">
-                                            <div className="w-12 h-12 rounded-2xl bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center text-primary-600 dark:text-primary-400 font-bold group-hover:scale-110 transition-transform">
+                                            <div className="w-12 h-12 rounded-lg bg-primary-50 dark:bg-gray-900 flex items-center justify-center text-primary-900 dark:text-primary-400 font-bold">
                                                 {user.name.charAt(0)}
                                             </div>
                                             <div>
-                                                <h4 className="font-black text-gray-900 dark:text-white text-lg tracking-tight">{user.name}</h4>
-                                                <p className="text-xs text-primary-600 dark:text-primary-400 font-bold tracking-widest uppercase opacity-60">Team Member</p>
+                                                <h4 className="font-black text-gray-900 dark:text-white text-lg tracking-tight uppercase">{user.name}</h4>
+                                                <p className="text-xs text-saffron font-bold tracking-widest uppercase">Team Member</p>
                                             </div>
                                         </div>
-                                        <div className="mt-6 flex items-center text-gray-400 group-hover:text-primary-500 transition-colors">
-                                            <Mail className="h-3 w-3 mr-2" />
-                                            <span className="text-[10px] font-bold tracking-[0.05em]">{user.email}</span>
+                                        <div className="mt-6 flex items-center text-gray-600 dark:text-gray-400">
+                                            <Mail className="h-4 w-4 mr-2 text-primary-600" />
+                                            <span className="text-xs font-bold tracking-[0.05em]">{user.email}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -206,22 +199,21 @@ const Home = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8">
+            <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-8 bg-primary-900 border-t-4 border-saffron">
                 <div className="container mx-auto max-w-4xl">
-                    <div className="relative overflow-hidden bg-gray-900 dark:bg-white/5 rounded-3xl p-12 md:p-16 text-center border border-gray-800 dark:border-white/10">
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 via-transparent to-purple-600/20 pointer-events-none"></div>
+                    <div className="relative overflow-hidden rounded-xl p-12 md:p-16 text-center">
                         <div className="relative z-10">
-                            <h2 className="text-3xl md:text-5xl font-black text-white dark:text-white tracking-tight mb-6 leading-tight">
+                            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-6 leading-tight uppercase">
                                 Ready to Make<br />a Difference?
                             </h2>
-                            <p className="text-gray-400 dark:text-gray-400 font-medium text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                            <p className="text-blue-100 font-medium text-lg max-w-xl mx-auto mb-10 leading-relaxed">
                                 Join 250+ volunteers building a better society. Your journey of service and self-discovery starts here.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                <Link to="/join" className="px-8 py-4 bg-white dark:bg-white text-gray-900 rounded-2xl font-bold shadow-lg hover:shadow-xl hover:opacity-95 active:scale-95 transition-all flex items-center group">
-                                    Join NSS Now <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                <Link to="/join" className="px-8 py-4 bg-saffron text-white rounded-md font-bold shadow-lg hover:bg-[#e68a2e] transition-colors flex items-center uppercase tracking-wide">
+                                    Join NSS Now <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
-                                <Link to="/events" className="px-8 py-4 border border-white/20 text-white rounded-2xl font-bold hover:bg-white/10 active:scale-95 transition-all">
+                                <Link to="/events" className="px-8 py-4 border-2 border-white/30 text-white rounded-md font-bold hover:bg-white/10 transition-colors uppercase tracking-wide">
                                     Explore Events
                                 </Link>
                             </div>

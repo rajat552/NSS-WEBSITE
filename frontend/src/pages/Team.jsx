@@ -4,7 +4,7 @@ import { Mail, Linkedin, Twitter, ExternalLink, User } from 'lucide-react';
 const Team = () => {
     const professors = [
         {
-            name: "Prof. Meghana Tare",
+            name: "Prof. Amit Bage",
             role: "Program Coordinator",
             image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop"
         }

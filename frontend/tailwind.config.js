@@ -9,16 +9,23 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50: '#f0f5fa',
+          100: '#e1ebf4',
+          200: '#c8dbe9',
+          300: '#a3c4db',
+          400: '#78a6cb',
+          500: '#578bb6',
+          600: '#416f98',
+          700: '#35597b',
+          800: '#2e4b66',
+          900: '#002147',
+          950: '#00132b',
+        },
+        saffron: {
+          DEFAULT: '#FF9933',
+        },
+        indiaGreen: {
+          DEFAULT: '#138808',
         }
       },
       fontFamily: {
