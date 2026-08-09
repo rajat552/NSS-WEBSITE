@@ -59,21 +59,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Latest Updates Marquee */}
-            <section className="bg-primary-900 border-b-4 border-saffron flex relative z-20">
-                <div className="bg-saffron text-white font-bold px-6 py-2 whitespace-nowrap z-10 uppercase tracking-widest hidden md:flex items-center shadow-lg">
-                    Latest Updates
-                </div>
-                <div className="overflow-hidden flex-1 flex items-center bg-primary-900 text-white">
-                    <div className="whitespace-nowrap animate-marquee py-2 flex items-center space-x-12 font-medium">
-                        <span>📢 NSS Special Camp dates announced! Register now.</span>
-                        <span>🩸 Mega Blood Donation Camp scheduled for next week.</span>
-                        <span>🌱 Join the Swachhata Hi Seva campaign on campus.</span>
-                        <span>🏆 NITH NSS volunteers win state-level recognition for Parishodh.</span>
-                        <span>📢 NSS Special Camp dates announced! Register now.</span>
-                    </div>
-                </div>
-            </section>
+           
 
             {/* What We Do Grid */}
             {/* What We Do Grid */}
