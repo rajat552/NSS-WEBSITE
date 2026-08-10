@@ -14,7 +14,7 @@ To ensure a smooth collaboration, please follow the guidelines below.
 - If you'd like to work on an existing issue, comment on it asking to be assigned. Do not begin work without prior confirmation to avoid double effort.
 
 ### 2. Branch Naming Conventions
-When working on your feature/bugfix, create a branch off the `main` (or `develop`, as specified) branch. Please use the following naming convention:
+When working on your feature/bugfix, create a branch off the `main` (or `develop`, as specified) branch. Please use the following namgiting convention:
 - **Features**: `feat/issue-number-short-description` (e.g., `feat/12-blood-request-validation`)
 - **Bugfixes**: `fix/issue-number-short-description` (e.g., `fix/4-theme-toggle-blink`)
 - **Documentation**: `docs/short-description` (e.g., `docs/update-installation-instructions`)
