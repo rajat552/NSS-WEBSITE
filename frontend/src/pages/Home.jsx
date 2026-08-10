@@ -90,14 +90,20 @@ const Home = () => {
                                 icon: <Heart className="h-6 w-6 text-red-500" />
                             }
                         ].map((feature, i) => (
-                            <Card key={i} className="group">
-                                <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8 bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-white/5 group-hover:scale-110 transition-transform">
-                                    {feature.icon}
-                                </div>
-                                <h3 className="text-2xl font-black mb-4 dark:text-white tracking-tight">{feature.title}</h3>
-                                <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-medium">{feature.desc}</p>
-                            </Card>
-                        ))}
+                           <div key={i} className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 border-t-4 border-t-primary-600 shadow-sm transition-all duration-300 group cursor-pointer hover:-translate-y-2 hover:border-saffron hover:shadow-[0_10px_25px_rgba(245,158,11,0.8)]">
+                         
+    
+                             <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-8 bg-gray-800/60 border border-white/5 group-hover:scale-110 transition-transform">
+                                 {feature.icon}
+                             </div>
+                                <h3 className="text-2xl font-black mb-4 text-white tracking-tight transition-colors duration-300 group-hover:text-yellow-400">
+                                {feature.title}
+                                </h3>
+                                <p className="text-gray-400 leading-relaxed font-medium">
+                                {feature.desc}
+                                </p>
+                            </div>
+                                ))}
                     </div>
                 </div>
             </section>
@@ -116,11 +122,11 @@ const Home = () => {
                             { icon: <Award className="h-5 w-5 text-amber-500" />, title: 'Umang', desc: 'Joy of giving to underprivileged children', color: 'amber' },
                             { icon: <Globe className="h-5 w-5 text-emerald-500" />, title: 'Swachh Campus', desc: 'Cleanliness and environmental preservation', color: 'emerald' },
                         ].map((item, i) => (
-                            <div key={i} className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 border-t-4 border-t-primary-600 shadow-sm hover:shadow-md transition-all duration-300 group">
+                            <div key={i} className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 border-t-4 border-t-primary-600 shadow-sm transition-all duration-300 group cursor-pointer hover:-translate-y-2 hover:border-saffron hover:shadow-[0_10px_25px_rgba(245,158,11,0.8)]">
                                 <div className="w-10 h-10 rounded-lg bg-gray-50 dark:bg-gray-900 flex items-center justify-center mb-4 text-primary-600">
                                     {item.icon}
                                 </div>
-                                <h4 className="font-bold text-primary-900 dark:text-white mb-2">{item.title}</h4>
+                                <h4 className="font-bold text-primary-900 dark:text-white mb-2 transition-colors group-hover:text-saffron">{item.title}</h4>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
