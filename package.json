@@ -15,5 +15,11 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@4.59.0",
+    "client": {
+      "rollup": "npm:@rollup/wasm-node@4.59.0"
+    }
   }
 }
